@@ -30,8 +30,13 @@ function CodeEditor({ socket, roomId }) {
       setVersion(version);
     });
 
+<<<<<<< HEAD
+    socket.on("welcome", (s) => {
+      console.log(s);
+=======
     socket.on("welcome", (event) => {
       console.log(event);
+>>>>>>> a4f7a94fad468084b8d0d6762f96d17408d47f93
     });
 
     return () => {
