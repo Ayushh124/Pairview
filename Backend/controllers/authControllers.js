@@ -8,7 +8,7 @@ export const login = async (req, res) => {
         const user = await User.findOne({ username: username });
 
         if (user) {
-            if (user.password === password) {
+            if (user.password != password) {
                 const token = jwt.sign({
                     id: user._id,
                 }, process.env.JWT_SECRET);
@@ -24,7 +24,7 @@ export const login = async (req, res) => {
         console.log(error);
         return res.status(500).send("internal server error");
     }
-}
+} 
 
 export const logout = (req, res) => {
     res.clearCookie('token');
