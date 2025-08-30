@@ -8,7 +8,7 @@ export const login = async (req, res) => {
         const user = await User.findOne({ username: username });
 
         if (user) {
-            if (user.password != password) {
+            if (user.password === password) {
                 const token = jwt.sign({
                     id: user._id,
                 }, process.env.JWT_SECRET);
